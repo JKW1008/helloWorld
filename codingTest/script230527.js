@@ -112,4 +112,135 @@
 // };
 
 // console.log(solution("people"));
-// console.log(solution("we are the World"));
+// console.log(solution('we are the World'))
+
+/** 모스 부호 */
+// const solution = (letter) => {
+//   const morse = {
+//     ".-": "a",
+//     "-...": "b",
+//     "-.-.": "c",
+//     "-..": "d",
+//     ".": "e",
+//     "..-.": "f",
+//     "--.": "g",
+//     "....": "h",
+//     "..": "i",
+//     ".---": "j",
+//     "-.-": "k",
+//     ".-..": "l",
+//     "--": "m",
+//     "-.": "n",
+//     "---": "o",
+//     ".--.": "p",
+//     "--.-": "q",
+//     ".-.": "r",
+//     "...": "s",
+//     "-": "t",
+//     "..-": "u",
+//     "...-": "v",
+//     ".--": "w",
+//     "-..-": "x",
+//     "-.--": "y",
+//     "--..": "z",
+//   };
+//   return letter
+//     .split(" ")
+//     .map((i) => morse[i])
+//     .join("");
+// };
+// console.log(solution(".... . .-.. .-.. ---"));
+
+/** 콜라츠 수열 만들기*/
+// const solution = (n) => {
+//   const answer = [];
+//   while (n !== 1) {
+//     answer.push(n);
+//     if (n % 2 === 0) {
+//       n /= 2;
+//     } else {
+//       n = 3 * n + 1;
+//     }
+//   }
+//   answer.push(1);
+//   return answer;
+// };
+// console.log(solution(10));
+
+/** 2차원으로 만들기 */
+// const solution = (num_list, n) => {
+//   let answer = [];
+
+//   for (let i = 0; i < num_list.length / n; i++) {
+//     return answer.push(num_list.slice(i * n, i * n + n));
+//   }
+// };
+// console.log(solution([1, 2, 3, 4, 5, 6, 7, 8], 2));
+
+/** A로 B 만들기*/
+// const solution = (berfore, after) => {
+//   return berfore.split("").sort().join("") === after.split("").sort().join("")
+//     ? 1
+//     : 0;
+// };
+// console.log(solution("olleh", "hello"));
+
+/** 팩토리얼 */
+// let solution = (n) => {
+//   /** for 문 */
+//     let answer = 1;
+
+//     for (let i = 1; i <= n; i++) {
+//       answer *= i;
+
+//       if (answer === n) {
+//         return i;
+//       }
+//       if (answer > n) {
+//         return i - 1;
+//       }
+//     }
+//     return answer - 1;
+
+//   /** while 문 */
+//   let factorial = 1;
+//   let num = 0;
+
+//   while (factorial <= n) {
+//     num++;
+//     factorial *= num;
+//   }
+//   return num - 1;
+// };
+// console.log(solution(3628800));
+
+/** 문자열 잘라서 정렬하기 */
+// const solution = (myString) => {
+//   let removeX = myString
+//     .split("x")
+//     .filter((a) => a !== "")
+//     .sort();
+
+//   return removeX;
+// };
+// console.log(solution("axbxcxdx"));
+
+/** 특별한 이차원 배열 1 */
+// const solution = (n) => {
+//   const arr = Array(n).fill(Array(n).fill(0));
+
+//   return arr.map((a, i) => {
+//     return a.map((b, bi) => (bi == i ? 1 : b));
+//   });
+// };
+// console.log(solution(3));
+
+/** 등차수열의 특정한 항만 더하기 */
+const solution = (a, d, included) => {
+  const arr = [a];
+  for (let i = 1; i < included.length; i++) {
+    arr[i] = arr[i - 1] + d;
+  }
+  return arr.reduce((acc, cur, idx) => (included[idx] ? acc + cur : acc), 0);
+};
+console.log(solution(3, 4, [true, false, false, true, true]));
