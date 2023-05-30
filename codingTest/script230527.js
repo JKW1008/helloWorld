@@ -236,11 +236,137 @@
 // console.log(solution(3));
 
 /** 등차수열의 특정한 항만 더하기 */
-const solution = (a, d, included) => {
-  const arr = [a];
-  for (let i = 1; i < included.length; i++) {
-    arr[i] = arr[i - 1] + d;
-  }
-  return arr.reduce((acc, cur, idx) => (included[idx] ? acc + cur : acc), 0);
-};
-console.log(solution(3, 4, [true, false, false, true, true]));
+// const solution = (a, d, included) => {
+//   const arr = [a];
+//   for (let i = 1; i < included.length; i++) {
+//     arr[i] = arr[i - 1] + d;
+//   }
+//   return arr.reduce((acc, cur, idx) => (included[idx] ? acc + cur : acc), 0);
+// };
+// console.log(solution(3, 4, [true, false, false, true, true]));
+
+/** 가까운 수 */
+// const solution = (array, n) => {
+//   let ans = [];
+
+//   array.forEach((item) => {
+//     ans.push(Math.abs(item - n));
+//   });
+
+//   const min = Math.min(...ans);
+
+//   let check = [];
+
+//   for (let i = 0; i < ans.length; i++) {
+//     if (ans[i] === min) {
+//       check.push(array[i]);
+//     }
+//   }
+//   return Math.min(...check);
+// };
+// console.log(solution([3, 10, 28], 20));
+
+/** k의 개수 */
+// const solution = (i, j, k) => {
+//   let a = "";
+
+//   for (i; i <= j; i++) {
+//     a += i;
+//   }
+
+//   return a.split(k).length - 1;
+// };
+
+// console.log(solution(1, 13, 1));
+
+/** 진료 순서 정하기 */
+// const solution = (emergency) => {
+//   let ans = [...emergency];
+//   ans.sort((a, b) => b - a);
+
+//   const result = [];
+//   for (let i = 0; i < emergency.length; i++) {
+//     const index = ans.indexOf(emergency[i]) + 1;
+//     result.push(index);
+//   }
+//   return result;
+// };
+// console.log(solution([3, 76, 24]));
+
+/** 수 조작하기 2 */
+// const solution = (numLog) => {
+//   return numLog.reduce((acc, cur, curIdx, originArr) => {
+//     if (!curIdx) return "";
+//     const prev = originArr[curIdx - 1];
+//     switch (prev - cur) {
+//       case -1:
+//         return acc + "w";
+//       case 1:
+//         return acc + "s";
+//       case -10:
+//         return acc + "d";
+//       case 10:
+//         return acc + "a";
+//     }
+//   }, "");
+// };
+// console.log(solution([0, 1, 0, 10, 0, 1, 0, 10, 0, -1, -2, -1]));
+
+/** 배열 만들기 5 */
+// const solution = (intStrs, k, s, l) => {
+//   const result = [];
+
+//   for (let i = 0; i < intStrs.length; i++) {
+//     const substring = intStrs[i].substring(s, s + l);
+//     const num = parseInt(substring, 10);
+
+//     if (num > k) {
+//       result.push(num);
+//     }
+//   }
+
+//   return result;
+// };
+// console.log(
+//   solution(["0123456789", "9876543210", "9999999999999"], 50000, 5, 5)
+// );
+
+/** 1로 만들기 */
+// const solution = (num_list) => {
+//   let cnt = 0;
+
+//   for (let i of num_list) {
+//     let num = i;
+
+//     while (num !== 1) {
+//       if (num % 2 === 0) {
+//         num /= 2;
+//       } else {
+//         num -= 1;
+//         num /= 2;
+//       }
+
+//       cnt++;
+//     }
+//   }
+//   return cnt;
+// };
+// console.log(solution([12, 4, 15, 1, 14]));
+
+/** 숨어있는 숫자의 덧셈 */
+// const solution = (my_string) => {
+//   let answer = 0;
+
+//   for (let i = 0; i < my_string.length; i++) {
+//     let tem = 0;
+//     while (!Number(isNaN(Number(my_string[i])))) {
+//       tem += my_string[i];
+//       console.log(tem);
+//       i++;
+//     }
+//     answer += Number(tem);
+//     console.log(answer);
+//   }
+//   return answer;
+// };
+// console.log(solution("aAb1B2cC34oOp"));
