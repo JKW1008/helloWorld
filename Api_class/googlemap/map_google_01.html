@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Map</title>
+</head>
+<body>
+    <!--<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3232.9168074898353!2d128.67930201561555!3d35.875555526896655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z7JiB7KeE7KeB7JeF7KCE66y47ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1649209093963!5m2!1sko!2skr" width="80%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+    <div id="map" style="width:80%; height:500px;">
+        <!--지도가 들어가는 영역! -->
+        </div>
+        <script type="text/javaScript">
+        function initMap() {
+             const map = new google.maps.Map(document.getElementById("map"), {
+                 zoom: 15,
+                 center: { lat: 35.8755512, lng: 128.6814907 }, // 지도의 중심 좌표
+             });
+        
+             // 마커 정보
+             var locations = [
+                    //{testId: 'location02', lat: 35.8755530, lng: 128.1234567},
+                    {testId: 'location01', lat: 35.8755512, lng: 128.6814907}
+             ];
+        
+             // 마커 생성
+             for (var i = 0; i < locations.length; i++) {
+                 var mapIcon = new google.maps.MarkerImage("map_google_marker.png"); // 이미지 파일 경로를 설정해주면 다른 마커아이콘을 쓸 수 있음!
+                 var marker = new google.maps.Marker({
+                     map: map,
+                     position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+                     icon: mapIcon
+                 });
+        
+                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                     return function() {
+                         // 마커 클릭시 실행할 이벤트를 설정해줄 수 있다
+                        alert(locations[i].testId);
+                     }
+                 })(marker, i));
+             }
+        }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvoF-GWajhV805O5SGS4ZYWpCJm_GLYD8&callback=initMap&libraries=&v=weekly" async></script>
+</body>
+</html>
