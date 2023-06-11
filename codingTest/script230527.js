@@ -344,13 +344,13 @@
 //       } else {
 //         num -= 1;
 //         num /= 2;
-//       }
+//
 
 //       cnt++;
 //     }
 //   }
 //   return cnt;
-// };
+// };()
 // console.log(solution([12, 4, 15, 1, 14]));
 
 /** 숨어있는 숫자의 덧셈 */
@@ -371,4 +371,84 @@
 // };
 // console.log(solution("aAb1B2cC34oOp"));
 
-/** 이차원 배열 대각선 순환하기 */
+/** 20230611 */
+/** 날짜 비교하기 */
+// const solution = (date1, date2) => {
+//   for (let i in date1) {
+//     if (date1[i] !== date2[i]) {
+//       return date1[i] < date2[i] ? 1 : 0;
+//     }
+//   }
+//   return 0;
+// };
+// console.log(solution([2021, 12, 28], [2021, 12, 29]));
+// console.log(solution([1024, 10, 24], [1024, 10, 24]));
+
+/** 수열과 구간 쿼리 1 */
+// const solution = (arr, queries) => {
+//     for(let i in queries){
+//         const [start, end] = queries[i];
+//         for(let j = start; j <= end; j++){
+//             arr[j] += 1;
+//         }
+//     }
+//     return arr;
+// }
+// console.log(solution([0, 1, 2, 3, 4], [[0, 1], [1, 2], [2, 3]]))
+
+/** 한번만 등장한 문자 */
+// const solution = (s) => {
+//   let newArr = [];
+//   for (let i of s) {
+//     if (s.indexOf(i) === s.lastIndexOf(i)) {
+//       newArr.push(i);
+//     }
+//   }
+//   return newArr.sort().join("");
+// };
+// console.log(solution("abcabcadc"));
+
+/** 세로 읽기 */
+// const solution = (my_string, m, c) => {
+//   //   const table = [];
+//   //   let result = "";
+
+//   //   for (let i = 0; i < Math.floor(my_string.length / m); i++) {
+//   //     const row = [];
+//   //     for (let j; j < m; j++) {
+//   //       const cur = my_string[i + m + j];
+//   //       if (i + j === c) result += cur;
+//   //       row.push(cur);
+//   //     }
+//   //     table.push(row);
+//   //   }
+//   //   return result;
+
+//   let result = "";
+//   const column = c - 1;
+//   const rows = Math.ceil(my_string.length / m);
+
+//   for (let i = 0; i < rows; i++) {
+//     const index = i * m + column;
+//     if (index < my_string.length) {
+//       result += my_string[index];
+//     }
+//   }
+
+//   return result;
+// };
+// console.log(solution("programmers", 1, 1));
+
+/** 이차원 배열 대각선 순회하기 */
+// const solution = (board, k) => {
+//   let sum = 0;
+//   for (let i = 0; i < board.length; i++) {
+//     for (let j = 0; j < board[i].length; j++) {
+//       if (i + j <= k) {
+//         sum += board[i][j];
+//       }
+//     }
+//   }
+
+//   return sum;
+// };
