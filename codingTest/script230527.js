@@ -452,3 +452,55 @@
 
 //   return sum;
 // };
+
+/** 2023. 06. 18 codingTest */
+/** 글자 지우기 */
+
+// function solution(my_string, indices) {
+//   return [...my_string]
+//     .map((a, i) => (indices.includes(i) ? 0 : a))
+//     .filter((a) => a !== 0)
+//     .join("");
+// }
+
+/** 특정 문자열로 끝나는 가장 긴 문자열 찾기*/
+// function solution(myString, pat) {
+//   const answer = [];
+//   myString.split("").forEach((a, i) => {
+//     const newStr = myString.slice(0, i + 1);
+
+//     if (newStr.endsWith(pat)) {
+//       answer.push(newStr);
+//     }
+//   });
+//   return answer.sort((a, b) => b.length - a.length)[0];
+// }
+
+/** 빈 배열에 추가 , 삭제하기 */
+
+// function solution(arr, flag) {
+//   const answer = [];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (flag[i]) {
+//       answer.push(...Array(arr[i] * 2).fill(arr[i]));
+//     } else {
+//       answer.splice(-arr[i]);
+//     }
+//   }
+//   return answer;
+// }
+
+/** 문자열이 몇번 등장하는지 세기 */
+// function solution(myString, pat) {
+//   return [...myString].reduce((acc, cur, idx) => {
+//     const curStr = myString.slice(idx, pat.length + idx);
+//     if (curStr === pat) return acc + 1;
+//     return acc;
+//   }, 0);
+// }
+
+/** 간단한 논리 연산 */
+// function solution(x1, x2, x3, x4) {
+//   return eval(`(${x1} || ${x2}) && (${x3} ||  ${x4})`);
+// }
