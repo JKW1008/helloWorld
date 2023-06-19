@@ -504,3 +504,16 @@
 // function solution(x1, x2, x3, x4) {
 //   return eval(`(${x1} || ${x2}) && (${x3} ||  ${x4})`);
 // }
+
+/** 292930619 */
+/** 문자열 뒤집기 */
+// function solution(my_string, s, e) {
+//   return (
+//     my_string.substring(0, s) +
+//     my_string(s, e + 1)
+//       .split("")
+//       .reverse()
+//       .join("") +
+//     my_string.substring(e + 1)
+//   );
+// }
